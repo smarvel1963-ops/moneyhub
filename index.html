@@ -1,0 +1,68 @@
+<!doctype html>
+<!-- SAVE AS: index.html  ·  LOCATION: C:/MarvelApps/moneyhub/index.html
+     MONEY HUB - app #6 of the Hub family, its own app at smarvel1963-ops.github.io/moneyhub/ (Scott 2026-10-15:
+     Money Hub plan, C:/MarvelDesktop/docs/MONEY_HUB_PLAN_FROM_OUTSIDE_CHAT_2026-10-15.md). Its own page, icons,
+     install and offline worker; it runs the shared Hub engine in the Day Hub repo with DH_MODE = "money" (+ money.js).
+     Its own data (moneyhub.v1). -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1f4d" id="themeColor">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Money Hub</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../dayhub/styles.css">
+</head>
+<body>
+  <header id="hero" class="hero"></header>
+
+  <main id="cards" class="cards"></main>
+
+  <button id="fab" class="fab" aria-label="Add something">+</button>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- quick add -->
+  <div id="qa" class="sheet hidden" role="dialog" aria-modal="true" aria-label="Add">
+    <div class="sheet-body">
+      <div class="grab"></div>
+      <div class="sheet-head"><h2>Add</h2><button class="icon-btn" data-close="qa" aria-label="Close">✕</button></div>
+      <div id="qaTypes" class="seg"></div>
+      <form id="qaForm" class="qa-form"></form>
+    </div>
+  </div>
+
+  <!-- settings -->
+  <div id="sheet" class="sheet hidden" role="dialog" aria-modal="true" aria-label="Settings">
+    <div class="sheet-body">
+      <div class="grab"></div>
+      <div class="sheet-head"><h2>Make it yours</h2><button class="icon-btn" data-close="sheet" aria-label="Close">✕</button></div>
+      <label class="field">Your first name <input id="setName" placeholder="e.g. Sam"></label>
+      <label class="field">Weather: city or ZIP code <input id="setCity" placeholder="e.g. Conway, AR  or  72032" inputmode="text"></label>
+      <label class="field">Profession
+        <select id="setPack"></select>
+      </label>
+      <h3>Cards — ▲▼ to move, switch to show or hide</h3>
+      <ul id="cardList" class="card-list"></ul>
+      <p class="fine"><b>Money Hub — a Marvel Corp app.</b> Its own app, and part of the hub family with Day Hub, Cruise Hub, Trip Hub, Home Hub and Auto Hub. <b>No ads. Ever.</b> Everything you type stays on this phone unless you turn on backup. Money Hub never asks for a bank password and is not financial advice. <span id="ver"></span></p>
+    </div>
+  </div>
+
+  <script>window.DH_MODE = "money";</script>
+  <script src="../dayhub/features.js"></script>
+  <script src="../dayhub/app.js"></script>
+  <script src="../dayhub/scenes.js"></script>
+  <script src="../dayhub/cruise.js"></script>
+  <script src="../dayhub/shell.js"></script>
+  <script src="../dayhub/trip.js"></script>
+  <script src="../dayhub/ships.js"></script>
+  <script src="../dayhub/money.js"></script>
+  <script src="../dayhub/ui.js"></script>
+</body>
+</html>

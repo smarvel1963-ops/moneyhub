@@ -1,0 +1,38 @@
+{
+  "id": "/moneyhub/",
+  "name": "Money Hub",
+  "short_name": "Money Hub",
+  "description": "Money Hub by Marvel Corp - see what you have, what's coming and what you can afford. Bills, budget, debt payoff, subscriptions and a payday planner. No bank passwords. No ads, ever.",
+  "lang": "en-US",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b1f4d",
+  "theme_color": "#0b1f4d",
+  "categories": [
+    "finance",
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
