@@ -2,14 +2,14 @@
   "id": "/moneyhub/",
   "name": "Money Hub",
   "short_name": "Money Hub",
-  "description": "Money Hub by Marvel Corp - see what you have, what's coming and what you can afford. Bills, budget, debt payoff, subscriptions and a payday planner. No bank passwords. No ads, ever.",
+  "description": "Money Hub by Marvel Corp - your financial control room. See your total balance, what's due, and your next 60 days. Snap receipts and bills, set goals you can see. No bank passwords. No ads, ever.",
   "lang": "en-US",
   "dir": "ltr",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0b1f4d",
-  "theme_color": "#0b1f4d",
+  "background_color": "#050b1f",
+  "theme_color": "#050b1f",
   "categories": [
     "finance",
     "productivity",
@@ -33,6 +33,43 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/phone-1-home.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Your total balance, accounts and what's due"
+    },
+    {
+      "src": "screenshots/phone-2-payments.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Upcoming payments by day"
+    },
+    {
+      "src": "screenshots/phone-3-add-by-photo.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Add by photo, by hand or by voice"
+    },
+    {
+      "src": "screenshots/phone-4-forecast.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Your next 60 days of cash"
+    },
+    {
+      "src": "screenshots/wide-1-payments.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Payments on a big screen"
     }
   ]
 }
