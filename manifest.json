@@ -2,7 +2,7 @@
   "id": "/moneyhub/",
   "name": "Money Hub",
   "short_name": "Money Hub",
-  "description": "Money Hub by Marvel Corp - your financial control room. See your total balance, what's due, and your next 60 days. Snap receipts and bills, set goals you can see. No bank passwords. No ads, ever.",
+  "description": "Money Hub by Marvel Corp - your financial control room. Bank, cards, Cash App, Venmo and PayPal in one place, read on your phone. Cash flow, what's due, and your next 60 days. No bank passwords. No ads, ever.",
   "lang": "en-US",
   "dir": "ltr",
   "start_url": "./",
@@ -71,5 +71,32 @@
       "form_factor": "wide",
       "label": "Payments on a big screen"
     }
-  ]
+  ],
+  "share_target": {
+    "action": "./share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "files": [
+        {
+          "name": "file",
+          "accept": [
+            "text/csv",
+            "text/comma-separated-values",
+            "text/plain",
+            "application/csv",
+            "application/x-ofx",
+            "application/ofx",
+            "application/vnd.intu.qfx",
+            "application/octet-stream",
+            ".csv",
+            ".ofx",
+            ".qfx",
+            ".qbo"
+          ]
+        }
+      ]
+    }
+  }
 }
