@@ -1,0 +1,69 @@
+<!doctype html>
+<!-- SAVE AS: privacy.html · LOCATION: C:/MarvelApps/moneyhub/privacy.html
+     Money Hub privacy policy (Day Hub v1.56 engine, DH_MODE "money"; written 2026-10-22 for the Google Play listing).
+     Same structure as ../dayhub/privacy.html. Plain words; only claims the code actually backs (money.js, moneyviz.js,
+     app.js, ui.js in the Day Hub repo). Update the date line whenever a data flow changes. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Money Hub Privacy</title>
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <style>
+    :root { --bg: #0b1020; --fg: #e8ecf8; --dim: #9aa6c4; --accent: #7dd3fc; --line: rgba(255,255,255,.12); }
+    @media (prefers-color-scheme: light) { :root { --bg: #f7f8fc; --fg: #141a2e; --dim: #4b5675; --accent: #0369a1; --line: rgba(0,0,0,.12); } }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 720px; margin: 0 auto; padding: 28px 16px 60px; }
+    h1 { font-size: 28px; margin: 0 0 4px; } h2 { font-size: 19px; margin: 28px 0 6px; }
+    .dim { color: var(--dim); font-size: 14px; } a { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; font-size: 15px; } td, th { text-align: left; vertical-align: top; padding: 8px 6px; border-bottom: 1px solid var(--line); }
+    th { font-size: 13px; color: var(--dim); font-weight: 600; }
+  </style>
+</head>
+<body><main>
+  <h1>Money Hub privacy policy</h1>
+  <p class="dim">Money Hub is an app by Marvel Corp. Last updated October 22, 2026.</p>
+
+  <h2>The short version</h2>
+  <p>What you type into Money Hub stays on your phone. Money Hub never asks for a bank password and never connects to your bank. We have no Money Hub account system and no database of your money. There are no ads, no ad trackers and no analytics in the app. A few features you choose to use send data to other services, and each one is listed below.</p>
+
+  <h2>What stays on your phone</h2>
+  <p>Your accounts and the balances you type, transactions, payments and bills, budgets, debts, subscriptions, paydays, savings goals, to-dos, lists and settings are saved in your browser's storage on your phone. Bank, card and payment-app files you import (CSV, OFX or QFX) are read on your phone; the file is not sent anywhere. Photos in the <b>Document Vault</b> (receipts, bills, tax and insurance papers) are kept on your phone only and are not part of any backup. We cannot see any of it.</p>
+  <p>You can erase it any time in ⚙ Settings → <b>Your data</b> → <b>Erase everything</b>. Uninstalling the app or clearing its site data also removes everything.</p>
+  <p>If Auto Hub or Home Hub is on the same phone, Money Hub can <b>read</b> their costs and bills from the phone's storage to show them in one place. That reading happens on the phone; nothing is sent. Turn it off in ⚙ → <b>Hub family</b>.</p>
+
+  <h2>What leaves your phone, and why</h2>
+  <table>
+    <tr><th>When</th><th>What is sent</th><th>To whom</th></tr>
+    <tr><td>Always (opening the app)</td><td>Normal web requests (your IP address, browser type)</td><td>GitHub Pages, which hosts the app, and Google Fonts, which supplies the lettering.</td></tr>
+    <tr><td>Only if you type a city or ZIP for weather in ⚙</td><td>The city or ZIP code you enter, then that place's map location</td><td>Open-Meteo (weather and place search). For US ZIP codes, also Zippopotam.us.</td></tr>
+    <tr><td>If you use the AI helper (Ask Money Hub, Money Advisor questions, Brain dump, Top 3)</td><td>The question you type and a summary of the money you logged so it can answer: account names, kinds and balances, card interest rates and minimum payments, monthly totals by category, budgets, subscriptions, your last 30 transactions, upcoming bills and paydays, the cash forecast and your goals, plus your to-dos and lists. Your notes are sent only if you tick <b>Let the AI read my notes</b>. While the AI helper is on, Top 3 can run once a day by itself when you open the app; that automatic pick never uses a paid AI credit. The "Can I afford it?" check itself is arithmetic on your phone and sends nothing.</td><td>Our relay (a Google Apps Script run by Marvel Corp), which passes it to Anthropic's Claude to get the answer (<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's privacy policy</a>). The relay does not save your text. It keeps only a count of requests per day.</td></tr>
+    <tr><td>If you add by photo while the AI helper is on</td><td>The photo you take or pick (a receipt, bill, pay stub or document), made smaller first</td><td>Our relay, which passes it to Anthropic's Claude to read the amounts. The relay does not save the photo. Nothing is added until you check the numbers and tap the button. With the AI helper off, no photo is sent - you type what it says.</td></tr>
+    <tr><td>If you add by voice</td><td>What you say</td><td>Your phone's own speech-to-text service (on Android, usually Google), which turns it into words. Money Hub only receives the words.</td></tr>
+    <tr><td>If you connect Google Calendar</td><td>The bills and payments you add, so they show on your phone's calendar; your calendar events are read to show them</td><td>Google, directly from your phone. The sign-in token is kept on your phone and expires after about an hour.</td></tr>
+    <tr><td>If you turn on backup</td><td>A copy of your Money Hub data (not the Document Vault photos)</td><td>A hidden app folder in <b>your own</b> Google Drive. Only Money Hub on your devices can read it. We cannot. Delete it any time in ⚙ → <b>Backup &amp; sync</b> → <b>Delete my Drive backup</b>.</td></tr>
+    <tr><td>If you unlock a purchase you already have (Money Hub Pro, Day Hub Pro or Hub AI Credits)</td><td>The email you bought with (or your membership id), and a random id your phone makes for itself, to check the purchase is active and limit it to 3 phones</td><td>Our relay, which looks the purchase up with Whop, where it was bought. The relay keeps only a scrambled (one-way) form of your account id with your phones' random ids and the day each was last seen, never your email. To use a purchase on a new phone, the relay emails a 6-digit code to that address (sent from Marvel Corp's Google account). We never see card details.</td></tr>
+    <tr><td>If you tap <b>Sign in</b> on the Data Update page</td><td>Nothing from Money Hub</td><td>It opens your bank's or payment app's own website in your browser. You sign in there; Money Hub never sees or keeps a password.</td></tr>
+    <tr><td>If you turn on reminders</td><td>Nothing. Reminders come from your phone itself.</td><td>No one</td></tr>
+  </table>
+
+  <h2>Google user data</h2>
+  <p>Money Hub's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements. Google data is used only to provide the features you turned on, in the app, on your phone. It is not sold, not used for advertising, not used to train AI models, and no person at Marvel Corp reads it. To disconnect, use ⚙ Settings in Money Hub or remove the app at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a>. The backup copy can be deleted from Google Drive → Settings → Manage apps.</p>
+
+  <h2>Not a bank, not advice</h2>
+  <p>Money Hub is a personal tracker. It does not hold money, move money, lend, or connect to any bank or card account. Its forecasts and "Can I afford it?" answers are arithmetic on the numbers you entered, not financial advice.</p>
+
+  <h2>Children</h2>
+  <p>Money Hub is for adults. It is not directed at children, and we do not knowingly collect information from children under 13.</p>
+
+  <h2>Selling data</h2>
+  <p>We do not sell or rent personal information. We hold almost none of it.</p>
+
+  <h2>Changes</h2>
+  <p>If what Money Hub sends anywhere changes, this page changes first, and the date at the top changes with it.</p>
+
+  <h2>Contact</h2>
+  <p>Marvel Corp, <a href="mailto:smarvel1963@gmail.com">smarvel1963@gmail.com</a></p>
+  <p class="dim"><a href="./">← Back to Money Hub</a></p>
+</main></body>
+</html>
