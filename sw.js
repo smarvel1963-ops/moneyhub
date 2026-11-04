@@ -4,7 +4,7 @@
  * ../dayhub/, cached here too. NETWORK FIRST (same rule as Day Hub's sw.js):
  * online = always the newest files, the cache is only the offline fallback.
  * Updates are announced by ../dayhub/version.json - this file rarely changes. */
-const CACHE = "moneyhub-v8";
+const CACHE = "moneyhub-v9";
 const SHELL = ["./", "index.html", "manifest.json", "icon-192.png", "icon-512.png", "icon-180.png",
   "../dayhub/styles.css", "../dayhub/features.js", "../dayhub/app.js", "../dayhub/scenes.js", "../dayhub/cruise.js", "../dayhub/shell.js", "../dayhub/trip.js", "../dayhub/ships.js", "../dayhub/money.js", "../dayhub/moneyviz.js", "../dayhub/ui.js", "../dayhub/privacy.html", "../dayhub/terms.html"];
 self.addEventListener("install", e => {
@@ -12,7 +12,7 @@ self.addEventListener("install", e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)));
 });
 self.addEventListener("activate", e => e.waitUntil(
-  caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE && k !== SHARED).map(k => caches.delete(k))))
+  caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith("moneyhub-") && k !== CACHE && k !== SHARED).map(k => caches.delete(k))))
     .then(() => self.clients.claim())));
 // v1.47 SHARE TO MONEY HUB (Android, installed app): Share a downloaded statement (CSV / OFX / QFX) from Cash App, Venmo,
 // PayPal, a bank app or Files -> Money Hub. The file is kept in this phone's cache for a moment and the app opens on
@@ -28,12 +28,13 @@ self.addEventListener("fetch", e => {
       return Response.redirect("./?share=1", 303); })());
     return;
   }
+  if (u.pathname.endsWith("/version.json") && e.request.method === "GET") return;   // the update check is always live and never piles up in the cache
+  if (e.request.cache === "reload" && e.request.destination === "") return;   // applyUpdate's fresh fetch: a failure must really fail, and half a set of new files stays out of the offline copy
   if (u.origin !== location.origin || e.request.method !== "GET") return;   // outside APIs: always live
   e.respondWith(fetch(e.request).then(r => {
-    const copy = r.clone();
-    caches.open(CACHE).then(c => c.put(e.request, copy));
+    if (r.ok) { const copy = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copy)); }   // never cache an error page
     return r;
-  }).catch(() => caches.match(e.request, { ignoreSearch: true })));
+  }).catch(() => caches.open(CACHE).then(c => c.match(e.request, { ignoreSearch: true })).then(r => r || caches.match(e.request, { ignoreSearch: true }))));   // offline: our own copy first, because every Hub's cache holds ../dayhub/ files and some are old
 });
 // Tapping a reminder opens Money Hub (or brings the open one to the front).
 self.addEventListener("notificationclick", e => {
